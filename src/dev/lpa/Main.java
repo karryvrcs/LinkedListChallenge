@@ -8,16 +8,28 @@ import java.util.Scanner;
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
+    public static void addPlace(LinkedList<Places> linkedList, Places place){
+        // The equals and hashcode method in Places Class must be overridden before checking duplication using contains method!
+        if(linkedList.contains(place)){
+            System.out.println("Found duplicate: " +place);
+        } else {
+            linkedList.add(place);
+        }
+    }
+
     public static void main(String[] args) {
         // Initialization
         LinkedList<Places> linkedList = new LinkedList<>();
-        linkedList.add(new Places("Sydney", 0));
-        linkedList.add(new Places("Adelaide", 1374));
-        linkedList.add(new Places("Alice Springs", 2771));
-        linkedList.add(new Places("Brisbane", 917));
-        linkedList.add(new Places("Darwin", 3972));
-        linkedList.add(new Places("Melbourne", 877));
-        linkedList.add(new Places("Perth", 3923));
+        addPlace(linkedList, new Places("Sydney", 0));
+
+
+        addPlace(linkedList, new Places("Sydney", 0));
+        addPlace(linkedList, new Places("Adelaide", 1374));
+        addPlace(linkedList, new Places("Alice Springs", 2771));
+        addPlace(linkedList, new Places("Brisbane", 917));
+        addPlace(linkedList, new Places("Darwin", 3972));
+        addPlace(linkedList, new Places("Melbourne", 877));
+        addPlace(linkedList, new Places("Perth", 3923));
         linkedList.sort(Comparator.comparing((Places::getDistance)));// 相当于((Places p) -> p.getDistance())
 
         ListIterator<Places> listIterator = linkedList.listIterator(1);

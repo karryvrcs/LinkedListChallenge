@@ -67,6 +67,7 @@ public class Main {
                     System.out.printf("%-14s %-14s", "Town", "Distance(in km)\n");
                     while (newIterator.hasNext()){
                         Places place = newIterator.next();
+
                         System.out.printf("%-14s %-14d\n", place.getTown(), place.getDistance());
                     }
                     System.out.println("-".repeat(30));
